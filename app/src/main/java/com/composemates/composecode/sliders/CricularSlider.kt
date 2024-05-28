@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import kotlin.math.PI
 import kotlin.math.atan2
 import kotlin.math.cos
+import kotlin.math.roundToInt
 import kotlin.math.sin
 
 @Composable
@@ -30,11 +31,12 @@ fun CircularSlider(
     onValueChange: (Float) -> Unit,
     steps: Int = 100
 ) {
-    var angle by remember { mutableFloatStateOf(initialValue * 360f) }
+    var angle by remember { mutableStateOf(initialValue * 360f) }
 
-    Box(modifier = modifier.size(200.dp)
-//        .background(color = Color.White)
-        .padding(8.dp)
+    Box(
+        modifier = modifier
+            .size(200.dp)
+            .padding(8.dp)
     ) {
         Canvas(modifier = Modifier
             .size(200.dp)
@@ -47,8 +49,19 @@ fun CircularSlider(
                         touchPosition.x - center.x
                     )
                     val newAngle = (angleRad * (180 / PI)).toFloat() + 180f
-                    angle = newAngle
-                    onValueChange(angle / 360f)
+
+                    // Calculate the step increment in degrees
+                    val stepIncrement = 360f / steps
+
+                    // Quantize the new angle to the nearest step
+                    val quantizedAngle = (newAngle / stepIncrement).roundToInt() * stepIncrement
+
+                    // Update the angle
+                    angle = quantizedAngle
+
+                    // Calculate the value based on the quantized angle
+                    val newValue = angle / 360f
+                    onValueChange(newValue)
                 }
             }) {
             val radius = size.minDimension / 2
