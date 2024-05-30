@@ -70,6 +70,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    implementation("me.saket.swipe:swipe:1.0.0")
 
     // Hilt Dependency
     implementation("com.google.dagger:hilt-android:2.51.1")

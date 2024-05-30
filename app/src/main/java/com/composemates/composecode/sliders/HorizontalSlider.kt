@@ -3,6 +3,7 @@ package com.composemates.composecode.sliders
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Slider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -14,7 +15,7 @@ import androidx.compose.ui.unit.dp
 fun Sliderr(){
 
     val sliderPositionState = remember {
-        mutableStateOf(0f)
+        mutableFloatStateOf(0f)
     }
 
     Slider(value = sliderPositionState.value,

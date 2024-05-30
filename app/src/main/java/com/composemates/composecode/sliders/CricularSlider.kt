@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -31,7 +30,7 @@ fun CircularSlider(
     onValueChange: (Float) -> Unit,
     steps: Int = 100
 ) {
-    var angle by remember { mutableStateOf(initialValue * 360f) }
+    var angle by remember { mutableFloatStateOf(initialValue * 360f) }
 
     Box(
         modifier = modifier
