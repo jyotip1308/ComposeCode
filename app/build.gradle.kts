@@ -75,6 +75,10 @@ dependencies {
     // Hilt Dependency
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+
+    implementation ("com.squareup.okhttp3:okhttp:4.12.0")
+
+    implementation  ("com.squareup.retrofit2:retrofit:2.9.0")
 }
 
 kapt {

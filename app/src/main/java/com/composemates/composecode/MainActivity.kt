@@ -3,10 +3,8 @@ package com.composemates.composecode
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.composemates.composecode.animations.Animation
 import com.composemates.composecode.networkMonitor.NetworkConnectivityHelper
-import com.composemates.composecode.sliders.TestCircularSlider
-import com.composemates.composecode.swipe.Swipe
+import com.composemates.composecode.swipe.SwipeText
 import com.composemates.composecode.ui.theme.ComposeCodeTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -24,9 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeCodeTheme {
 //                TestCircularSlider()
-
-                Swipe()
-
+                SwipeText()
             }
         }
     }
