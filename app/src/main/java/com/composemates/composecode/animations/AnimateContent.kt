@@ -36,12 +36,10 @@ fun Animation(){
                       transitionSpec = {
                           slideInHorizontally(
                               initialOffsetX = {
-//                                   -it
                                   if (isVisible) it else -it
                               }
                           ) with slideOutHorizontally(
                               targetOffsetX = {
-//                                   it
                                   if (isVisible) -it else it
                               }
                           )
