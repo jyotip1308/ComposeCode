@@ -9,13 +9,10 @@ import javax.inject.Inject
 class AuthRepository @Inject constructor(
     private val api: AuthApi) : SafeApiCall
 {
-
-    @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     suspend fun login(
-        mobileNumber: String,
+    employee_id: String,
         password: String
     ) = safeApiCall {
-
-        api.login(mobileNumber, password)
+        api.login(employee_id, password)
     }
 }

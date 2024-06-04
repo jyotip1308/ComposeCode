@@ -70,18 +70,24 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    // Swipe Dependency
     implementation("me.saket.swipe:swipe:1.0.0")
 
     // Hilt Dependency
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 
+    // Retrofit Dependency
     implementation ("com.squareup.okhttp3:okhttp:4.12.0")
-
     implementation  ("com.squareup.retrofit2:retrofit:2.9.0")
-
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
+
+
+    // Viewmodel Dependency
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.1")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.1")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.1")
 }
 
 kapt {

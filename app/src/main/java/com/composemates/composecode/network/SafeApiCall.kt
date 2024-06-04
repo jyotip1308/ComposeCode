@@ -7,7 +7,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
 interface SafeApiCall {
-    @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
+//    @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     suspend fun <T> safeApiCall(apiCall: suspend () -> T): Resource<T>
     {
         return withContext(Dispatchers.IO) {

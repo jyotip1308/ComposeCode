@@ -39,7 +39,6 @@ fun SwipeText(){
         "Opportunities don't happen, you create them.",
         "It is never too late to be what you might have been."
     )
-
             val pagerState = rememberPagerState{ thoughts.size }
             val scope = rememberCoroutineScope()
             Box(modifier = Modifier.fillMaxSize()){
@@ -50,10 +49,7 @@ fun SwipeText(){
                     pageSize = PageSize.Fill
 
                 ) { index->
-
                     Boxes(text = thoughts[index])
-
-
                 }
 
                 Box(modifier = Modifier

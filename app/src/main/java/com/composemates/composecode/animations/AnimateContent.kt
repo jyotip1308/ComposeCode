@@ -22,12 +22,12 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Animation(){
 
-                var isVisible by remember {
+                val isVisible by remember {
                     mutableStateOf(false)
 
                 }
 
-                  AnimatedContent(
+                    AnimatedContent(
                       targetState = isVisible,
                       modifier = Modifier
                           .fillMaxWidth(1f)
@@ -51,6 +51,7 @@ fun Animation(){
 
                       }
                       else {
+
                           Box(modifier = Modifier.background(Color.Magenta))
                       }
                   }

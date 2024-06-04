@@ -15,7 +15,7 @@ class RemoteDataSource {
         token: String? = null
     ): Api {
         return Retrofit.Builder()
-            .baseUrl("VSU_BASE_URL")
+            .baseUrl("http://192.168.1.6:5000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(api)
