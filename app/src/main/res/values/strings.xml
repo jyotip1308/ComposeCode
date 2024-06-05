@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">ComposeCode</string>
+    <string name="app_name" translatable="false">ComposeCode</string>
+    <string name="thought">The best way to predict the future is to create it.</string>
+    <string name="thought2">Just one small positive thought in the morning can change your whole day.\n</string>
+    <string name="thought3">Opportunities don\'t happen, you create them.</string>
+    <string name="thought4">It is never too late to be what you might have been.</string>
 </resources>

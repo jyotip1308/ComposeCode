@@ -23,9 +23,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.composemates.composecode.R
+import com.composemates.composecode.ui.theme.kanit
+import com.composemates.composecode.ui.theme.kanitText
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -33,11 +37,13 @@ import kotlinx.coroutines.launch
 @Composable
 fun SwipeText(){
 
+    val context = LocalContext.current
     val thoughts = listOf(
-        "The best way to predict the future is to create it.",
-        "Just one small positive thought in the morning can change your whole day.",
-        "Opportunities don't happen, you create them.",
-        "It is never too late to be what you might have been."
+        context.getString(R.string.thought),
+        context.getString(R.string.thought2),
+        context.getString(R.string.thought3),
+        context.getString(R.string.thought4)
+
     )
             val pagerState = rememberPagerState{ thoughts.size }
             val scope = rememberCoroutineScope()
@@ -95,7 +101,7 @@ fun Boxes(text: String){
     Box(modifier = Modifier.padding(36.dp))
     {
         Text(text = text,
-            fontSize = 24.sp
+           style = kanitText
         )
     }
 }

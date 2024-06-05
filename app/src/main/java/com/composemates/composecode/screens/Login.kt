@@ -1,6 +1,5 @@
 package com.composemates.composecode.screens
 
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -35,14 +34,12 @@ import com.composemates.composecode.viewModels.AuthViewModel
 //@Preview
 @Composable
 fun Login(viewModel: AuthViewModel){
+
     var employee_id by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
     val context = LocalContext.current
     val loginResponse by viewModel.loginResponse.collectAsState()
-
-
-
 
     Column (modifier = Modifier
         .fillMaxSize()
@@ -82,10 +79,19 @@ fun Login(viewModel: AuthViewModel){
                 modifier = Modifier.padding(horizontal = 12.dp)
             )
 
-            if (loginResponse is Resource.Success){
-                Toast.makeText(context, "Login Successful!", Toast.LENGTH_LONG).show()
-                Log.d("LOGIN", "Login: Successful")
-                viewModel.clearLoginResponse()
+            when (loginResponse) {
+                is Resource.Loading -> {
+                    // Show loading state if needed
+                }
+                is Resource.Success -> {
+                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
+                }
+                is Resource.Failure -> {
+                    Toast.makeText(context, "Login Failed: ${(loginResponse as Resource.Failure).errorBody}", Toast.LENGTH_SHORT).show()
+                }
+                is Resource.Noaction -> {
+                    // Do nothing
+                }
             }
 
         }

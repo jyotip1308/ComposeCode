@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import com.composemates.composecode.navigation.Navigate
 import com.composemates.composecode.networkMonitor.NetworkConnectivityHelper
 import com.composemates.composecode.screens.Login
 import com.composemates.composecode.swipe.SwipeText
@@ -26,10 +27,10 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ComposeCodeTheme {
-                
-                Login(authViewModel)
 
-//              SwipeText()
+//                Navigate()
+//                Login(authViewModel)
+              SwipeText()
             }
         }
     }

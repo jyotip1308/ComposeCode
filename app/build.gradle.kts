@@ -70,6 +70,9 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
+
     // Swipe Dependency
     implementation("me.saket.swipe:swipe:1.0.0")
 
