@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
@@ -72,7 +73,6 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-
     // Swipe Dependency
     implementation("me.saket.swipe:swipe:1.0.0")
 
@@ -80,17 +80,33 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 
+    // Hilt Navigation dependency
+    implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
+
     // Retrofit Dependency
     implementation ("com.squareup.okhttp3:okhttp:4.12.0")
     implementation  ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
 
-
-    // Viewmodel Dependency
+    // ViewModel Dependency
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.1")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.1")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.1")
+
+    // Firebase
+    implementation("com.google.firebase:firebase-auth-ktx:23.0.0")
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    //Location
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation ("com.google.accompanist:accompanist-permissions:0.31.1-alpha")
+
+
+
 }
 
 kapt {

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">ComposeCode</string>
+    <string name="web_client_id" translatable="false">431265721940-jtb86kjf596df1epaispbr1df54tqtma.apps.googleusercontent.com</string>
     <string name="thought">The best way to predict the future is to create it.</string>
     <string name="thought2">Just one small positive thought in the morning can change your whole day.\n</string>
     <string name="thought3">Opportunities don\'t happen, you create them.</string>

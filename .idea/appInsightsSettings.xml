@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.composemates.composecode" />
+                  <option name="mobileSdkAppId" value="1:431265721940:android:155a803643ca98366e87c1" />
+                  <option name="projectId" value="composecodesignin" />
+                  <option name="projectNumber" value="431265721940" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

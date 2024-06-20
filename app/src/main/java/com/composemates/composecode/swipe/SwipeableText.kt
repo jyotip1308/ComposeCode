@@ -3,8 +3,12 @@ package com.composemates.composecode.swipe
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
@@ -26,9 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.composemates.composecode.R
-import com.composemates.composecode.ui.theme.kanit
 import com.composemates.composecode.ui.theme.kanitText
 import kotlinx.coroutines.launch
 
@@ -45,17 +47,25 @@ fun SwipeText(){
         context.getString(R.string.thought4)
 
     )
+
+    val header = listOf(
+        "benefit 1",
+        "benefit 2",
+        "benefit 3",
+        "benefit 4"
+
+    )
             val pagerState = rememberPagerState{ thoughts.size }
             val scope = rememberCoroutineScope()
             Box(modifier = Modifier.fillMaxSize()){
                 HorizontalPager(
-//                        pageCount = animals.size,
                     state = pagerState,
                     key = {thoughts[it]},
                     pageSize = PageSize.Fill
 
                 ) { index->
-                    Boxes(text = thoughts[index])
+                    Boxes(headerText = header[index],
+                        text = thoughts[index])
                 }
 
                 Box(modifier = Modifier
@@ -97,11 +107,27 @@ fun SwipeText(){
     }
 
 @Composable
-fun Boxes(text: String){
-    Box(modifier = Modifier.padding(36.dp))
+fun Boxes(headerText: String,text: String){
+    Box(modifier = Modifier.padding(36.dp)
+        .fillMaxSize(), // Ensure the Box fills the available space
+    )
     {
-        Text(text = text,
-           style = kanitText
-        )
+        Column (modifier = Modifier.fillMaxSize()){
+            Row {
+//                Icon(
+//                    painter = painterResource(id = R.drawable.ellipseorange),
+//                    contentDescription = "Hindi",
+//                    tint = Color.Unspecified
+//                )
+                Text(text = headerText)
+            }
+
+            Spacer(modifier = Modifier.height(36.dp))
+
+            Text(text = text,
+                style = kanitText
+            )
+        }
+
     }
 }

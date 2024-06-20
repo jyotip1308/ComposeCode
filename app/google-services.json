@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "431265721940",
+    "project_id": "composecodesignin",
+    "storage_bucket": "composecodesignin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431265721940:android:155a803643ca98366e87c1",
+        "android_client_info": {
+          "package_name": "com.composemates.composecode"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHoLjTddwmfb4t0COi5w5U_Sqrfxtv6fY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
