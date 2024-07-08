@@ -12,7 +12,20 @@
           "package_name": "com.composemates.composecode"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "431265721940-6fptvfg1ifukcmfccu8mhpmijpeuutil.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.composemates.composecode",
+            "certificate_hash": "2d324f6131a50cad77e0921774fbc22c7e2b070f"
+          }
+        },
+        {
+          "client_id": "431265721940-jtb86kjf596df1epaispbr1df54tqtma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCHoLjTddwmfb4t0COi5w5U_Sqrfxtv6fY"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431265721940-jtb86kjf596df1epaispbr1df54tqtma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

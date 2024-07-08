@@ -17,10 +17,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.composemates.composecode.firebasePresentation.GoogleAuthUiClient
+import com.composemates.composecode.firebasePresentation.GoogleAuthUiClientHilt
 import com.composemates.composecode.firebasePresentation.ProfileScreen
 import com.composemates.composecode.firebasePresentation.SignInScreen
 import com.composemates.composecode.kotlinFlows.CountDownUi
+import com.composemates.composecode.navigation.FirebaseNavGraph
 import com.composemates.composecode.networkMonitor.NetworkConnectivityHelper
+import com.composemates.composecode.responsiveScreens.LoginScreen
 import com.composemates.composecode.ui.theme.ComposeCodeTheme
 import com.composemates.composecode.viewModels.AuthViewModel
 import com.composemates.composecode.viewModels.FirebaseViewModel
@@ -33,12 +36,17 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val googleAuthClient by lazy {
+    //Firebase using hilt
+ /*   private val googleAuthClient by lazy {
         GoogleAuthUiClient(
             context = applicationContext,
             oneTapClient = Identity.getSignInClient(applicationContext)
         )
-    }
+    }*/
+
+    @Inject
+    lateinit var googleAuthUiClientHilt: GoogleAuthUiClientHilt
+
     @Inject
     lateinit var networkConnectivityHelper: NetworkConnectivityHelper
     private val authViewModel: AuthViewModel by viewModels()
@@ -51,7 +59,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeCodeTheme {
 
-                val navController = rememberNavController()
+                // Firebase using hilt navigation code
+
+                /*val navController = rememberNavController()
 
                 NavHost(
                     navController = navController,
@@ -128,7 +138,14 @@ class MainActivity : ComponentActivity() {
                             }
                         )
                     }
-                }
+                }*/
+
+                LoginScreen()
+
+              /*  val navController = rememberNavController()
+                FirebaseNavGraph(navController = navController,
+                    googleAuthClientHilt = googleAuthUiClientHilt,
+                    applicationContext = applicationContext)*/
 
 //                CountDownUi(viewModel)
 //                CurrentLocation()

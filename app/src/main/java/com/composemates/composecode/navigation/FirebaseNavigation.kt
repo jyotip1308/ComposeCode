@@ -13,15 +13,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.composemates.composecode.firebasePresentation.GoogleAuthUiClient
+import com.composemates.composecode.firebasePresentation.GoogleAuthUiClientHilt
 import com.composemates.composecode.firebasePresentation.ProfileScreen
 import com.composemates.composecode.firebasePresentation.SignInScreen
 import com.composemates.composecode.viewModels.FirebaseViewModel
 import kotlinx.coroutines.launch
 
 @Composable
-fun NavGraph(
+fun FirebaseNavGraph(
     navController: NavHostController,
-    googleAuthClient: GoogleAuthUiClient,
+    googleAuthClientHilt: GoogleAuthUiClientHilt,
     applicationContext: Context
 ) {
     NavHost(
@@ -35,9 +36,11 @@ fun NavGraph(
             var userSignedIn by remember { mutableStateOf(false) }
 
             LaunchedEffect(key1 = Unit) {
-                userSignedIn = googleAuthClient.getSignedInUser() != null
+                userSignedIn = googleAuthClientHilt.getSignedInUser() != null
                 if (userSignedIn) {
-                    navController.navigate("profile")
+                    navController.navigate("profile") {
+                        popUpTo("sign_in") { inclusive = true }
+                    }
                 }
             }
 
@@ -46,7 +49,7 @@ fun NavGraph(
                 onResult = { result ->
                     if (result.resultCode == RESULT_OK) {
                         viewModel.viewModelScope.launch {
-                            val signInResult = googleAuthClient.signInWithIntent(
+                            val signInResult = googleAuthClientHilt.signInWithIntent(
                                 intent = result.data ?: return@launch
                             )
                             viewModel.onSignInResult(signInResult)
@@ -71,7 +74,7 @@ fun NavGraph(
             SignInScreen(state = state,
                 onSignInClick = {
                     viewModel.viewModelScope.launch {
-                        val signInIntentSender = googleAuthClient.signIn()
+                        val signInIntentSender = googleAuthClientHilt.signIn()
                         launcher.launch(
                             IntentSenderRequest.Builder(
                                 signInIntentSender ?: return@launch
@@ -86,17 +89,19 @@ fun NavGraph(
             val viewModel: FirebaseViewModel = hiltViewModel()
 
             ProfileScreen(
-                userData = googleAuthClient.getSignedInUser(),
+                userData = googleAuthClientHilt.getSignedInUser(),
                 onSignOut = {
                     viewModel.viewModelScope.launch {
-                        googleAuthClient.signOut()
+                        googleAuthClientHilt.signOut()
                         Toast.makeText(
                             applicationContext,
                             "Signed out",
                             Toast.LENGTH_LONG
                         ).show()
 
-                        navController.popBackStack()
+                        navController.navigate("sign_in") {
+                            popUpTo("profile") { inclusive = true }
+                        }
                     }
                 }
             )

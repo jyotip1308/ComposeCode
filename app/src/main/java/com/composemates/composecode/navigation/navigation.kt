@@ -26,8 +26,6 @@ fun Navigate() {
         composable("ABCD"){
             ABCD()
         }
-
-
     }
 }
 
