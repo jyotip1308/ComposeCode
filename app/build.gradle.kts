@@ -108,6 +108,12 @@ dependencies {
     //Window size
     implementation("androidx.compose.material3:material3-window-size-class-android:1.2.1")
 
+    //Websocket Dependency
+    implementation ("io.socket:socket.io-client:2.0.0")
+
+    //YCharts
+    implementation("co.yml:ycharts:2.1.0")
+
 
 }
 

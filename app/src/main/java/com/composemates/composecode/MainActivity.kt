@@ -1,36 +1,20 @@
 package com.composemates.composecode
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
-import androidx.activity.result.IntentSenderRequest
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.composemates.composecode.firebasePresentation.GoogleAuthUiClient
+import co.yml.charts.common.utils.DataUtils
+import com.composemates.composecode.charts.StraightLinechart
+import com.composemates.composecode.dropdown.DropDownDemo
 import com.composemates.composecode.firebasePresentation.GoogleAuthUiClientHilt
-import com.composemates.composecode.firebasePresentation.ProfileScreen
-import com.composemates.composecode.firebasePresentation.SignInScreen
-import com.composemates.composecode.kotlinFlows.CountDownUi
 import com.composemates.composecode.navigation.FirebaseNavGraph
 import com.composemates.composecode.networkMonitor.NetworkConnectivityHelper
-import com.composemates.composecode.responsiveScreens.LoginScreen
 import com.composemates.composecode.ui.theme.ComposeCodeTheme
 import com.composemates.composecode.viewModels.AuthViewModel
-import com.composemates.composecode.viewModels.FirebaseViewModel
 import com.composemates.composecode.viewModels.viewodel.FlowViewModel
-import com.google.android.gms.auth.api.identity.Identity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -58,6 +42,14 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ComposeCodeTheme {
+
+//                DropDownDemo()
+
+//                StraightLinechart(DataUtils.getLineChartData(30, maxRange = 200))
+//                LineChartScreen()
+
+//                MyApp()
+//                ProgressBarCircular()
 
                 // Firebase using hilt navigation code
 
@@ -140,12 +132,12 @@ class MainActivity : ComponentActivity() {
                     }
                 }*/
 
-                LoginScreen()
+//                LoginScreen()
 
-              /*  val navController = rememberNavController()
+                val navController = rememberNavController()
                 FirebaseNavGraph(navController = navController,
                     googleAuthClientHilt = googleAuthUiClientHilt,
-                    applicationContext = applicationContext)*/
+                    applicationContext = applicationContext)
 
 //                CountDownUi(viewModel)
 //                CurrentLocation()
