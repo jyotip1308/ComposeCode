@@ -11,6 +11,7 @@ import com.composemates.composecode.dropdown.DropDownDemo
 import com.composemates.composecode.firebasePresentation.GoogleAuthUiClientHilt
 import com.composemates.composecode.navigation.FirebaseNavGraph
 import com.composemates.composecode.networkMonitor.NetworkConnectivityHelper
+import com.composemates.composecode.searchBar.SearchBar
 import com.composemates.composecode.ui.theme.ComposeCodeTheme
 import com.composemates.composecode.viewModels.AuthViewModel
 import com.composemates.composecode.viewModels.viewodel.FlowViewModel
@@ -42,6 +43,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ComposeCodeTheme {
+                SearchBar()
 
 //                DropDownDemo()
 
@@ -134,10 +136,10 @@ class MainActivity : ComponentActivity() {
 
 //                LoginScreen()
 
-                val navController = rememberNavController()
-                FirebaseNavGraph(navController = navController,
-                    googleAuthClientHilt = googleAuthUiClientHilt,
-                    applicationContext = applicationContext)
+//                val navController = rememberNavController()
+//                FirebaseNavGraph(navController = navController,
+//                    googleAuthClientHilt = googleAuthUiClientHilt,
+//                    applicationContext = applicationContext)
 
 //                CountDownUi(viewModel)
 //                CurrentLocation()

@@ -37,11 +37,11 @@ fun FirebaseNavGraph(
 
             LaunchedEffect(key1 = Unit) {
                 userSignedIn = googleAuthClientHilt.getSignedInUser() != null
-                if (userSignedIn) {
+              /*  if (userSignedIn) {
                     navController.navigate("profile") {
                         popUpTo("sign_in") { inclusive = true }
                     }
-                }
+                }*/
             }
 
             val launcher = rememberLauncherForActivityResult(
